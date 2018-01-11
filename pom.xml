@@ -6,7 +6,6 @@
 	<groupId>edu.neu.cs5200</groupId>
 	<artifactId>cs5200-spring2018-jaipuria</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 
 	<name>cs5200-spring2018-jaipuria</name>
 	<description>Demo project for Spring Boot</description>
