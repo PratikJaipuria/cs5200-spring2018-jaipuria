@@ -16,8 +16,7 @@ Each method represent individual question written in
 * UpdateFirstQ implies first question for first update question
 
 
-[Link to Code]
-(https://github.com/PratikJaipuria/cs5200-spring2018-jaipuria/tree/master/src/main/java/edu/neu/cs5200/jdbc)
+[Link to Code](https://github.com/PratikJaipuria/cs5200-spring2018-jaipuria/tree/master/src/main/java/edu/neu/cs5200/jdbc)
 
 
 
