@@ -179,7 +179,7 @@ public class Hw_jdbc_jaipuria_pratik {
 		DeveloperDao devDao = DeveloperDao.getInstance(); 
 		
 		//Home
-		Page page = new Page("Home", "Landing Page", LocalDate.now(),LocalDate.now(),123434);
+		Page page = new Page("Home", "Landing Page", LocalDate.of(2018, 1, 8),LocalDate.of(2018,3,7),123434);
 		Collection<Website> websites = websiteDao.findAllWebsites();
 		
 		Integer websiteId = null;
@@ -215,7 +215,7 @@ public class Hw_jdbc_jaipuria_pratik {
 		
 	
 		//About
-		page = new Page("About", "Website description", LocalDate.now(),LocalDate.now(),234545);
+		page = new Page("About", "Website description", LocalDate.of(2018, 1, 8),LocalDate.of(2018,3,7),234545);
 		
 		
 		websiteId = null;
@@ -247,7 +247,7 @@ public class Hw_jdbc_jaipuria_pratik {
 		
 		
 		//Contact
-		page = new Page("Contact", "Addresses, phones, and contact info", LocalDate.now(),LocalDate.now(),345656);
+		page = new Page("Contact", "Addresses, phones, and contact info", LocalDate.of(2018, 1, 8),LocalDate.of(2018,3,7),345656);
 		
 		websiteId = null;
 		for(Website web : websites) {
@@ -278,7 +278,7 @@ public class Hw_jdbc_jaipuria_pratik {
 		
 		
 		//Preferences
-		page = new Page("Preferences", "Where users can configure their preferences", LocalDate.now(),LocalDate.now(),456776);
+		page = new Page("Preferences", "Where users can configure their preferences", LocalDate.of(2018, 1, 8),LocalDate.of(2018,3,7),456776);
 	
 		websiteId = null;
 		for(Website web : websites) {
@@ -308,7 +308,7 @@ public class Hw_jdbc_jaipuria_pratik {
 		roleDao.assignPageRole(developer.getDeveloperId(), pageId, Role.writer);
 
 		//Profile
-		page = new Page("Profile", "Users can configure their personal information", LocalDate.now(),LocalDate.now(),567878);
+		page = new Page("Profile", "Users can configure their personal information", LocalDate.of(2018, 1, 8),LocalDate.of(2018,3,7),567878);
 	
 		websiteId = null;
 		for(Website web : websites) {
@@ -426,17 +426,17 @@ public class Hw_jdbc_jaipuria_pratik {
 		return ;
 	}
 	
-	public void updateFirstQ() {
-		DeveloperDao devDao = DeveloperDao.getInstance();
-		Developer developer = devDao.findDeveloperByUsername("charlie");
-		Phone phone = new Phone("333-444-555",true,developer.getPersonId());
-		devDao.updatePhonebyUsername("charlie", phone);
-		return;
-		
-	}
+//	public void updateFirstQ() {
+//		DeveloperDao devDao = DeveloperDao.getInstance();
+//		Developer developer = devDao.findDeveloperByUsername("charlie");
+//		Phone phone = new Phone("333-444-555",true,developer.getPersonId());
+//		devDao.updatePhonebyUsername("charlie", phone);
+//		return;
+//		
+//	}
 	
 //	Update widget - Update the relative order of widget head345 on the page so that it's new order is 3. Note that the other widget's order needs to update as well
-	public void updateSecondQ() {
+	public void updateFirstQ() {
 		
 		WidgetDao widgetDao = WidgetDao.getInstance();
 		
@@ -477,8 +477,8 @@ public class Hw_jdbc_jaipuria_pratik {
 		return;
 	}
 	
-	
-	public void updateThirdQ() {
+//	Update page - Append 'CNET - ' to the beginning of all CNET's page titles
+	public void updateSecondQ() {
 		WebsiteDao websiteDao = WebsiteDao.getInstance();
 		Integer websiteId = null;
 		for(Website website: websiteDao.findAllWebsites()) {
@@ -503,7 +503,7 @@ public class Hw_jdbc_jaipuria_pratik {
 	
 	
 //	Update roles - Swap Charlie's and Bob's role in CNET's Home page
-	public void updateFourthQ() {
+	public void updateThirdQ() {
 		DeveloperDao devDao = DeveloperDao.getInstance();
 		WebsiteDao websiteDao = WebsiteDao.getInstance();
 		PageDao pageDao = PageDao.getInstance();
@@ -521,7 +521,7 @@ public class Hw_jdbc_jaipuria_pratik {
 		
 		Integer pageId = null;
 		for( Page page : pageDao.findPagesForWebsite(websiteId)) {
-			if(page.getTitle().equals("Home")) {
+			if(page.getTitle().contains("Home")) {
 				pageId = page.getPageId();
 			}
 		}
@@ -537,25 +537,26 @@ public class Hw_jdbc_jaipuria_pratik {
 	}
 	
 	
-	public void deleteFirstQ() {
-		DeveloperDao devDao = DeveloperDao.getInstance();
-		
-		Developer dev = devDao.findDeveloperByUsername("alice");
-		Integer personId = dev.getPersonId();
-		
-		Collection<Address> addresses = devDao.findAllAddressByPersonId(personId);
-		Address address = null; 
-		for(Address a : addresses) {
-			if(a.isPrimary()) {
-				address = a;
-			}
-		}
-		
-		
-		devDao.deleteAddress(address);		
-	}
+//	public void deleteFirstQ() {
+//		DeveloperDao devDao = DeveloperDao.getInstance();
+//		
+//		Developer dev = devDao.findDeveloperByUsername("alice");
+//		Integer personId = dev.getPersonId();
+//		
+//		Collection<Address> addresses = devDao.findAllAddressByPersonId(personId);
+//		Address address = null; 
+//		for(Address a : addresses) {
+//			if(a.isPrimary()) {
+//				address = a;
+//			}
+//		}
+//		
+//		
+//		devDao.deleteAddress(address);		
+//	}
 	
-	public void deleteSecondQ() {
+//	Delete widget - Remove the last widget in the Contact page. The last widget is the one with the highest value in the order field
+	public void deleteFirstQ() {
 		PageDao pageDao = PageDao.getInstance();
 		WidgetDao widgetDao = WidgetDao.getInstance();
 		
@@ -583,7 +584,8 @@ public class Hw_jdbc_jaipuria_pratik {
 		
 	}
 	
-	public void deleteThirdQ() {
+//	Delete page - Remove the last updated page in Wikipedia
+	public void deleteSecondQ() {
 		
 		WebsiteDao websiteDao = WebsiteDao.getInstance();
 		PageDao pageDao = PageDao.getInstance();
@@ -611,7 +613,8 @@ public class Hw_jdbc_jaipuria_pratik {
 		pageDao.deletePage(pageId);
 	}
 	
-	public void deleteFourthQ() {
+//	Delete website - Remove the CNET web site, as well as all related roles and privileges relating developers to the Website and Pages
+	public void deleteThirdQ() {
 		
 		WebsiteDao websiteDao = WebsiteDao.getInstance();
 		
