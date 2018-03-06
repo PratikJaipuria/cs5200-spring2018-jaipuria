@@ -48,29 +48,33 @@ public class Cs5200Spring2018JaipuriaApplication extends SpringBootServletInitia
 		
 //		UPDATES
 		
-//		Update widget - Update the relative order of widget head345 on the page so that it's new order is 3. Note that the other widget's order needs to update as well
+//		Update developer - Update Charlie's primary phone number to 333-444-5555
 		jdbc.updateFirstQ();
 		
-//		Update page - Append 'CNET - ' to the beginning of all CNET's page titles
+//		Update widget - Update the relative order of widget head345 on the page so that it's new order is 3. Note that the other widget's order needs to update as well
 		jdbc.updateSecondQ();
 			
-//		Update roles - Swap Charlie's and Bob's role in CNET's Home page
+//		Update page - Append 'CNET - ' to the beginning of all CNET's page titles
 		jdbc.updateThirdQ();
+		
+//		Update roles - Swap Charlie's and Bob's role in CNET's Home page
+		jdbc.updateFourthQ();
 			
 //		========================================================
 
 //		DELETES
 
-//		Delete widget - Remove the last widget in the Contact page. The last widget is the one with the highest value in the order field
+//		Delete developer - Delete Alice's primary address
 		jdbc.deleteFirstQ();
 		
-//		Delete page - Remove the last updated page in Wikipedia
+//		Delete widget - Remove the last widget in the Contact page. The last widget is the one with the highest value in the order field
 		jdbc.deleteSecondQ();
-		
-//		Delete website - Remove the CNET web site, as well as all related roles and privileges relating developers to the Website and Pages
+
+//		Delete page - Remove the last updated page in Wikipedia
 		jdbc.deleteThirdQ();
 		
-		
+//		Delete website - Remove the CNET web site, as well as all related roles and privileges relating developers to the Website and Pages
+		jdbc.deleteFourthQ();
 //	   =========================================================
 	}
 }
